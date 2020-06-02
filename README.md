@@ -1,6 +1,6 @@
 # scala-wechaty-getting-started
 
-![Scala Wechaty](https://wechaty.github.io/scala-wechaty/images/scala-wechaty.png)
+![Scala Wechaty](https://wechaty.github.io/scala-wechaty-getting-started/images/scala-wechaty.png)
 
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/wechaty/scala-wechaty-getting-started)
 
