@@ -34,8 +34,7 @@ Wechaty is a RPA SDK for Wechat **Individual** Account that can help you create 
 3. Set token for your bot
 
     ```sh
-    # examples/ding-dong-bot.py : func-> main()
-    # it must be donut token
+    # it must be hostie token
     export WECHATY_PUPPET=wechaty-puppet-hostie
     export WECHATY_PUPPET_HOSTIE_TOKEN=your_token_at_here
     ```
