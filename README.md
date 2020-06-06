@@ -3,6 +3,7 @@
 ![Scala Wechaty](https://wechaty.github.io/scala-wechaty-getting-started/images/scala-wechaty.png)
 
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/wechaty/scala-wechaty-getting-started)
+[![Wechaty in Scala](https://img.shields.io/badge/Wechaty-Scala-890)](https://github.com/wechaty/scala-wechaty)
 
 Scala Wechaty Starter Project Template that Works Out-of-the-Box
 
@@ -71,6 +72,15 @@ object DingDongBot {
 - [Java Wechaty Getting Started](https://github.com/wechaty/java-wechaty-getting-started)
 - [Go Wechaty Getting Started](https://github.com/wechaty/go-wechaty-getting-started)
 - [Scala Wechaty Getting Started](https://github.com/wechaty/scala-wechaty-getting-started)
+
+
+## Badge
+
+[![Wechaty in Scala](https://img.shields.io/badge/Wechaty-Scala-890)](https://github.com/wechaty/scala-wechaty)
+
+```md
+[![Wechaty in Scala](https://img.shields.io/badge/Wechaty-Scala-890)](https://github.com/wechaty/scala-wechaty)
+```
 
 ## Maintainers
 
