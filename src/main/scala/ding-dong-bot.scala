@@ -8,12 +8,11 @@ import wechaty.{Wechaty, WechatyOptions}
  */
 object DingDongBot {
   def main(args: Array[String]): Unit = {
-    val token: String = System.getenv("WECHATY_PUPPET_HOSTIE_TOKEN")
-    if (!TokenValidator.isValidToken(token)) {
-      throw new Exception("Error: Wrong token format, WECHATY_PUPPET_HOSTIE_TOKEN should be in UUID v4 format!")
-    } else {
-      System.out.println("token format correct, creating Wechaty instance...")
-    }
+    val token: String = sys.props.getOrElse("WECHATY_PUPPET_HOSTIE_TOKEN",
+      throw new Exception(s"Error: WECHATY_PUPPET_HOSTIE_TOKEN is not found in the environment variable!" +
+        s"You need a TOKEN to run the Scala Wechaty." +
+        s"Please goto our README for details https://wechaty.js.org/docs/puppet-services/padlocal/"))
+    TokenValidator.isValidToken(token)
 
     val option = new WechatyOptions
     val bot = Wechaty.instance(option)
@@ -44,24 +43,18 @@ object DingDongBot {
 }
 
 object TokenValidator {
+  def isValidToken(token: String): Unit = {
+    import java.util.regex.Pattern
+    val p = Pattern.compile("[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
+    val valid = p.matcher(token).matches()
 
-  import java.util.UUID
 
-  def isValidToken(token: String): Boolean = {
-    if (StringUtils.isBlank(token)) {
-      System.out.println("Error: WECHATY_PUPPET_HOSTIE_TOKEN is not found in the environment variables")
-      System.out.println("You need a TOKEN to run the Scala Wechaty. Please goto our README for details")
-      System.out.println("https://wechaty.js.org/docs/puppet-services/padlocal/")
-      false
-
+    if (valid) {
+      System.out.println("token format correct, creating Wechaty instance...")
     } else {
-      try {
-        UUID.fromString(token)
-        token.length == 36
-      } catch {
-        case _: IllegalArgumentException =>
-          false
-      }
+      throw new Exception(s"Error: Wrong token format, WECHATY_PUPPET_HOSTIE_TOKEN should be in UUID v4 format!")
     }
   }
+
+
 }
