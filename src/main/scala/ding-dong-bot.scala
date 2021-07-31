@@ -15,29 +15,37 @@ object DingDongBot {
     TokenValidator.isValidToken(token)
 
     val option = new WechatyOptions
-    val bot = Wechaty.instance(option)
-    bot
-      .onScan(payload => {
-        println("Scan QR Code to login: %s\nhttps://api.qrserver.com/v1/create-qr-code/?data=%s\n".format(payload.status, payload.qrcode))
-      })
-      .onLogin(payload => {
-        println("User %s logined\n".format(payload.id))
-      })
-      .onMessage(message => {
-        println(message)
-        if (message.payload.`type` != wechaty.puppet.schemas.Message.MessageType || message.payload.text != "ding") {
-          println("Message discarded because it does not match ding")
-        } else {
-          message.say("dong")
-          println("dong")
-        }
-      })
+
+    try {
+      val bot = Wechaty.instance(option)
+
+      bot
+        .onScan(payload => {
+          println("Scan QR Code to login: %s\nhttps://api.qrserver.com/v1/create-qr-code/?data=%s\n".format(payload.status, payload.qrcode))
+        })
+        .onLogin(payload => {
+          println("User %s logined\n".format(payload.id))
+        })
+        .onMessage(message => {
+          println(message)
+          if (message.payload.`type` != wechaty.puppet.schemas.Message.MessageType || message.payload.text != "ding") {
+            println("Message discarded because it does not match ding")
+          } else {
+            message.say("dong")
+            println("dong")
+          }
+        })
 
 
-    bot.start()
+      bot.start()
 
-    Thread.currentThread().join()
+      Thread.currentThread().join()
 
+
+    } catch {
+      case _: java.io.FileNotFoundException =>
+        System.out.println(s"TOKEN is NOT registered successfully, please refer to https://wechaty.js.org/docs/puppet-services/diy/")
+    }
 
   }
 }
