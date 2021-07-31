@@ -15,7 +15,10 @@ Wechaty is a RPA SDK for Wechat **Individual** Account that can help you create 
 
 ## Requirements
 
-1. Scala
+1. sbt
+   https://www.scala-sbt.org/1.x/docs/Setup.html
+2. Scala 2.12.x
+   https://www.scala-lang.org/download/scala2.html
 
 ## Quick Start
 
@@ -32,20 +35,14 @@ Wechaty is a RPA SDK for Wechat **Individual** Account that can help you create 
    make install
    ```
 
-3. Set token for your bot
-
-    ```sh
-    # it must be hostie token
-    export WECHATY_PUPPET=wechaty-puppet-hostie
-    export WECHATY_PUPPET_HOSTIE_TOKEN=your_token_at_here
-    ```
-
-4. Run the bot
+4. Set token and Run the bot
 
    ```shell
    make bot
-   # or
-   scala examples/ding-dong-bot.scala
+   # Make sure you are in the sbt console
+   # It must be hostie token
+   eval System.setProperty("WECHATY_PUPPET_HOSTIE_TOKEN", "your_token_at_here")
+   run
    ```
 
 ## The World's Shortest Scala ChatBot: 6 lines of Code

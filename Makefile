@@ -17,7 +17,7 @@ lint:
 
 .PHONY: install
 install:
-	echo install scala
+	sbt
 
 .PHONY: test
 test:
@@ -25,7 +25,7 @@ test:
 
 .PHONY: bot
 bot:
-	scala examples/ding-dong-bot.scala
+	sbt
 
 .PHONY: version
 version:
